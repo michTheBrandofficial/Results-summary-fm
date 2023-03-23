@@ -1,0 +1,183 @@
+@font-face {
+  font-family: 'Hanken Grotesk';
+  src: url(../assets/fonts/HankenGrotesk-VariableFont_wght.ttf);
+}
+@font-face {
+  font-family: 'Hanken Grotesk 500';
+  src: url(../assets/fonts/static/HankenGrotesk-Medium.ttf);
+}
+@font-face {
+  font-family: 'Hanken Grotesk 700';
+  src: url(../assets/fonts/static/HankenGrotesk-Bold.ttf);
+}
+@font-face {
+  font-family: 'Hanken Grotesk 800';
+  src: url(../assets/fonts/static/HankenGrotesk-ExtraBold.ttf);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --slateRoyalBlue: linear-gradient(to bottom, hsl(252, 100%, 67%), hsl(241, 81%, 54%)); 
+  --violetPersianBlue: linear-gradient(to bottom, hsla(256, 72%, 46%, 1), hsla(241, 72%, 46%, 0));
+}
+
+body {
+  width: 100%;
+  font-family: 'Hanken Grotesk';
+  min-height: 100vh;
+  padding: 50px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body > section {
+  width: 640px;
+  min-height: 480px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#results, #summary {
+  padding: 2.5rem;
+  flex-basis: 50%;
+  min-width: 320px;
+  min-height: 480px;
+  border-radius: 30px;
+}
+
+#results {
+  /* this z-index property is not supposed to work, because the element doesn't have a position property but it does. Why?? */
+  z-index: 2;
+  transform: translateX(10px);
+  background: var(--slateRoyalBlue);
+  box-shadow: 1px 10px 1em hsla(252, 100%, 67%, .3);
+}
+
+#results, #summary, div.circle {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#results h1, #results h2 {
+  color: hsl(0, 0%, 100%);
+}
+
+#results h1 {
+  font-size: 3.5rem;
+}
+
+#results p {
+  font-size: calc(1rem + 1px);
+  text-align: center;
+}
+
+#results h3, p {
+  color: hsl(241, 100%, 89%, .8);
+}
+
+#results .circle {
+  width: 175px;
+  height: 175px;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--violetPersianBlue);
+}
+
+/* summary section */
+#summary {
+  background: hsl(0, 0%, 100%);
+  transform: translateX(-10px);
+  border-radius: 0px 30px 30px 0px;
+  box-shadow: 1px 10px 1em hsla(252, 100%, 67%, .3);
+}
+
+#summary h3, #summary button, #summary section {
+  width: 100%;
+}
+
+#summary h3 {
+  height: 10%;
+  font-family: 'Hanken Grotesk 800';
+  color: hsl(224, 30%, 21%);
+}
+
+#summary section {
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.summaries-summary {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 5px;
+}
+
+.mood, .score {
+  font-family: 'Hanken Grotesk 800';
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.mood {
+  width: 55%;
+  justify-content: flex-start;
+}
+
+.mood img {
+  margin-right: 10px;
+}
+
+.score {
+  width: 25%;
+}
+.score > p:first-child {
+  color: hsl(224, 30%, 21%);
+}
+.score > p:last-child {
+  color: hsl(241, 100%, 89%, .8);
+}
+
+#summary button {
+  height: 13%;
+  font-size: 16px;
+  font-family: 'Hanken Grotesk 700';
+  border: none;
+  border-radius: 30px;
+  color: hsla(0, 0%, 100%, .75);
+  background-color: hsl(224, 30%, 21%);
+  cursor: pointer;
+}
+
+#summary button:hover {
+  background: var(--slateRoyalBlue);
+}
+
+@media (max-width: 643px) {
+  #results, #summary {
+    box-shadow: none;
+  }
+  #results {
+    transform: translateY(40px);
+  }
+  #summary {
+    border-radius:  0px 0px 30px 30px;
+    transform: translateX(0px);
+  }
+}
+
